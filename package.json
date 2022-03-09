@@ -1,0 +1,24 @@
+{
+  "name": "iutmeteoangular",
+  "version": "1.0.0",
+  "description": "site meteo utilisant l'api openweather et angularjs",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DayUx/IUTMetoAngular.git"
+  },
+  "author": "Kalmar Quentin et Coignac Paul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DayUx/IUTMetoAngular/issues"
+  },
+  "homepage": "https://github.com/DayUx/IUTMetoAngular#readme",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-route": "^1.8.2",
+    "materialize-css": "^1.0.0"
+  }
+}

@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-test
-</body>
-</html>
+<div class="top-container">
+    <info><img id="pays">
+        <h1 id="ville"></h1></info>
+    <div class="search-div">
+        <div class="search-container"><input ng-model='searchInput' id="search">
+            <ul id="search-list">
+                <div class=loading-content>
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <button class="loupe" ng-click='search()'></button>
+        <button class="map" onclick="showMap()"></button>
+    </div>
+</div>
+
+
+<div ng-repeat="x in meteovilles" class="card carousel-item">
+    <div class="card-image">
+        <img src="https://materializecss.com/images/sample-1.jpg">
+        <span class="card-title">{{x.name}}</span>
+        <a href="#!previsions?id={{x.id}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+    </div>
+    <div class="card-content">
+        <p>{{x.weather[0].description}}</p>
+    </div>
+    <div class="card-action">
+        <a href="#">This is a link</a>
+    </div>
+</div>
+
+
+
+
+

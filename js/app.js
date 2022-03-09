@@ -1,16 +1,22 @@
-var app = angular.module('myApp',["ngRoute"]);
-app.config(function($routeProvider) {
+var app = angular.module('myApp', ["ngRoute",'routeAppController']);
+app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl : "partials/meteovilles.html"
+            templateUrl: "partials/meteovilles.html",
+            controller:"ControllerMeteoVilles"
         })
         .when("/ville", {
-            templateUrl : "partials/villes.html"
+            templateUrl: "partials/villes.html"
         })
         .when("/previsions", {
-            templateUrl : "partials/previsions.html"
+            templateUrl: "partials/previsions.html",
+            controller:"ControllerPrevisions"
+
         })
-        .when("/meteovilles", {
-            templateUrl : "partials/meteovilles.html"
+        .when("/contact", {
+            templateUrl: "partials/contact.html"
+        })
+        .when("/aide", {
+            templateUrl: "partials/aide.html"
         });
 });

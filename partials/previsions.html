@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+
+
+<ul class="collapsible" materialize="collapsible">
+    <li ng-repeat="x in previsions">
+        <div class="collapsible-header"><img src="http://openweathermap.org/img/wn/{{x.weather[0].icon}}.png" class="circle"><span class="title">{{x.date}}</span> <span>{{x.temp.max}}</span></div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+</ul>
