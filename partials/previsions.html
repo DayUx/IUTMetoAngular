@@ -1,9 +1,12 @@
-
-
-
-<ul class="collapsible" materialize="collapsible">
+<ul class="collapsible white-text" materialize="collapsible">
     <li ng-repeat="x in previsions">
-        <div class="collapsible-header"><img src="http://openweathermap.org/img/wn/{{x.weather[0].icon}}.png" class="circle"><span class="title">{{x.date}}</span> <span>{{x.temp.max}}</span></div>
+        <div class="collapsible-header valign-wrapper row light-blue darken-3 ">
+            <img src="http://openweathermap.org/img/wn/{{x.weather[0].icon}}.png"
+                 class="circle">
+            <span class="title col s10">{{x.date}}</span>
+            <span class="col s2 m1">{{x.temp.max}}C°</span>
+        </div>
         <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
 </ul>
+

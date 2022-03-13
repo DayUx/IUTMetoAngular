@@ -50,6 +50,13 @@ body:before {
     z-index: 10001;
 }
 
+.row {
+    margin:0;
+}
+.collapsible, .collapsible-header, .collapsible-body {
+    border-color: #0a68a0;
+}
+
 
 .leve:before {
     content: "";
@@ -192,9 +199,9 @@ body:before {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 50px;
-    width: 300px;
+    width: 600px;
 
 
 }
@@ -393,7 +400,7 @@ button:hover {
     .top-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         width: 100%;
         padding: 50px 20px 50px 20px;

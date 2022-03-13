@@ -1,8 +1,7 @@
 <div class="top-container">
-    <info><img id="pays">
-        <h1 id="ville"></h1></info>
     <div class="search-div">
-        <div class="search-container"><input ng-model='searchInput' id="search">
+        <div class="search-container">
+            <input placeholder="Rechercher" ng-model='searchInput' id="search">
             <ul id="search-list">
                 <div class=loading-content>
                     <div class="progress">
@@ -16,21 +15,103 @@
     </div>
 </div>
 
+<div class="row">
+<!--    <div ng-repeat="x in meteovilles" class="card col s10 offset-s1 m8 offset-m2 l6 offset-l3 xl4 offset-xl4">-->
+<!--        <div class="card-image">-->
+<!--            <img src="https://materializecss.com/images/sample-1.jpg">-->
+<!--            <span class="card-title">{{x.name}}</span>-->
+<!--            <a href="#!previsions?id={{x.id}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>-->
 
-<div ng-repeat="x in meteovilles" class="card carousel-item">
-    <div class="card-image">
-        <img src="https://materializecss.com/images/sample-1.jpg">
-        <span class="card-title">{{x.name}}</span>
-        <a href="#!previsions?id={{x.id}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+<!--        </div>-->
+<!--        <div class="card-content">-->
+<!--            <p>{{x.weather[0].description}}</p>-->
+<!--        </div>-->
+<!--        <div class="card-action">-->
+<!--            <a href="#">This is a link</a>-->
+<!--        </div>-->
+<!--    </div>-->
 
+
+
+
+
+    <div  ng-repeat="x in meteovilles" onclick="location.href='#!previsions?id=' + {{x.id}}" class="waves-effect card col s10 offset-s1 m8 offset-m2 l6 offset-l3 xl4 offset-xl4">
+        <div id="grad" class="card-image row">
+            <span  class="card-subtitle col s12">Paris, FR</span>
+            <span  class="temp col s6">12°C</span>
+            <img class="col s6" src="http://openweathermap.org/img/wn/{{x.weather[0].icon}}@4x.png">
+
+        </div>
+        <div class="card-content info" style="padding: 10px 10px 0px 10px;">
+            <div id="content" >
+                <div class="row">
+                    <div class="col s8">
+                        <h4 style="margin: 0px; margin-top: 5px;">
+                            <span id="title" class="col s12 card-title ui-text truncate"><b>Clouds</b></span>
+                        </h4>
+                        <span id="desc" class="col s12">BROKEN CLOUDS</span>
+                    </div>
+                    <div class="col s4 feels-like">
+                        <h6>Feels like</h6>
+                        <span id="fl-temp">11°C</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="ui">
+                        <div class="col s6 ">
+                            <div class="ui_box col s12">
+                                <div>
+                                    <h5>
+                                        <i class="fas fa-tint"></i>
+                                    </h5>
+                                    <div class="">
+                                        <div>
+                                            <span id="humid">{{x.main.humidity}}%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="determinate"  style="width:{{x.main.humidity}}%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s6 ">
+                            <div class=" col s12">
+                                <div>
+                                    <h5>
+                                        <i class="fa-solid fas fa-wind"></i>
+                                    </h5>
+                                    <div>
+                                        <div>
+                                            <span id="wind">4.1&nbsp;<span>m/s</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div style="padding: 12px 5%; display: flex; justify-content: space-between;">
+                    <div>
+                        <i class="wi wi-sunrise"></i>
+                        <span id="sr">Sunrise:  07:16</span>
+                    </div>
+                    <div>
+                        <i class="wi wi-sunset"></i>
+                        <span id="ss">Sunset:  18:45</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="card-content">
-        <p>{{x.weather[0].description}}</p>
-    </div>
-    <div class="card-action">
-        <a href="#">This is a link</a>
-    </div>
+
+
 </div>
+
+
 
 
 
