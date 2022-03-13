@@ -1,12 +1,22 @@
+
+
+<div class="row">
+    <h1 class=" col offset-s1 s10 white-text">{{ville.name}}, {{ville.sys.country}}</h1>
+
+</div>
+
 <ul class="collapsible white-text" materialize="collapsible">
-    <li ng-repeat="x in previsions">
-        <div class="collapsible-header valign-wrapper row light-blue darken-3 ">
+    <li  ng-repeat="x in previsions">
+        <div class="collapsible-header waves-effect valign-wrapper row light-blue darken-3 ">
             <img src="http://openweathermap.org/img/wn/{{x.weather[0].icon}}.png"
                  class="circle">
             <span class="title col s10">{{x.date}}</span>
-            <span class="col s2 m1">{{x.temp.max}}C°</span>
+            <span class="col s2 m1">{{x.temp.max}}°C</span>
         </div>
         <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
 </ul>
+
+
+
 

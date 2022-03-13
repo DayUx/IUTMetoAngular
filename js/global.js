@@ -7,18 +7,6 @@ let appid = "439d4b804bc8187953eb36d2a8c26a02";
 
 let appid2 = "91ff69b5d8840063d7bd0abbcf2cd86c";
 
-$(document).ready(function () {
-    $('.sidenav').sidenav();
-});
-
-$(document).ready(function(){
-    $('.collapsible').collapsible();
-});
-
-loadCollapsible = function () {
-    $('.collapsible').collapsible();
-};
-
 
 
 //
@@ -217,28 +205,28 @@ loadCollapsible = function () {
 // }
 //
 //
-// function initMap() {
-//     const myLatlng = {lat: 48.856614, lng: 2.3522219};
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//         zoom: 4,
-//         center: myLatlng,
-//     });
-//     google.maps.event.addListener(map, 'click', function (event) {
-//         marker.setPosition(event.latLng);
-//         latLong = event.latLng.toJSON();
-//     });
-//     let marker = new google.maps.Marker({
-//         position: location,
-//         map: map
-//     });
-//
-// }
+function initMap() {
+    const myLatlng = {lat: 48.856614, lng: 2.3522219};
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: myLatlng,
+    });
+    google.maps.event.addListener(map, 'click', function (event) {
+        marker.setPosition(event.latLng);
+        latLong = event.latLng.toJSON();
+    });
+    let marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+
+}
 //
 // function valider() {
 //     $(".map-container").removeClass("toggle");
 //     position({coords: {latitude: latLong.lat, longitude: latLong.lng}});
 // }
 //
-// function showMap() {
-//     $(".map-container").toggleClass("toggle");
-// }
+function showMap() {
+    $(".map-container").toggleClass("toggle");
+}
