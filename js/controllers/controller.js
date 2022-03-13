@@ -146,7 +146,7 @@ routeAppController.controller("ControllerPrevisions", function ($scope, $routePa
 
     $http({
         method: 'GET',
-        url: "http://api.openweathermap.org/data/2.5/onecall?lat=" + $scope.ville.coord.lat + "&lon=" + $scope.ville.coord.lon + "&exclude=hourly,minutely&lang=fr&units=metric&appid=" + appid2
+        url: "http://api.openweathermap.org/data/2.5/onecall?lat=" + $scope.ville.coord.lat + "&lon=" + $scope.ville.coord.lon + "&exclude=hourly,minutely&lang=fr&units=metric&appid=" + $scope.appid2
     }).then(function successCallback(response) {
         for (var i = 0; i < response.data.daily.length; i++) {
             response.data.daily[i].date = jourSemaine[new Date(response.data.daily[i].dt * 1000).getDay()] + " " + new Date(response.data.daily[i].dt * 1000).getDate();
