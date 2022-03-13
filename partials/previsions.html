@@ -1,31 +1,30 @@
-
-
 <div class="row">
-    <h1 class=" col offset-s1 s10 white-text">{{ville.name}}, {{ville.sys.country}}</h1>
-
+    <h3 class=" center white-text">{{ville.name}}, {{ville.sys.country}}</h3>
 </div>
-
 <ul class="collapsible white-text" materialize="collapsible">
-    <li  ng-repeat="x in previsions">
+    <li ng-repeat="x in previsions">
         <div class="collapsible-header waves-effect valign-wrapper row light-blue darken-3 ">
             <img src="http://openweathermap.org/img/wn/{{x.weather[0].icon}}.png"
                  class="circle">
             <span class="title col s10">{{x.date}}</span>
-            <span class="col s2 m1">{{x.temp.max}}°C</span>
+            <span class="col s2 m1">{{x.temp.day}}°C</span>
         </div>
         <div class="collapsible-body">
-
             <div class="row">
-
-                <div class="col s12 m6">
-                    <h1>{{x.temp.max}}°C <i class="fas fa-chevron-right"></i> {{x.temp.min}}°C</h1>
-                    <p>{{x.weather[0].description}}</p>
-                    <p>Humidité: {{x.humidity}}%</p>
-                    <p>Vent: {{x.wind_speed}} km/h</p>
-                    <p>Pression: {{x.pressure}} hPa</p>
-
+                <div class="col offset-l4 offset-m3 offset-s1 s10 m6 l4">
+                    <h4>{{x.temp.min}}°C <i class="fas fa-angle-left"></i> {{x.temp.max}}°C</h4>
+                    <h5>{{x.weather[0].description}}</h5>
+                    <div >
+                        <div>
+                            <span><i class="wi wi-humidity"></i> {{x.humidity}}%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="determinate" style="width:{{x.humidity}}%;"></div>
+                        </div>
+                    </div>
+                    <p><i class="wi wi-strong-wind"></i> {{x.wind_speed}} m/s {{getCardinalDirection(x.wind_deg)}}</p>
+                    <p><i class="wi-barometer wi"></i> {{x.pressure}} hPa</p>
                 </div>
-
             </div>
         </div>
     </li>

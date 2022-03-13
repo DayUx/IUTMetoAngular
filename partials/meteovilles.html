@@ -51,7 +51,7 @@
                         <span>{{x.weather[0].description}}</span>
                     </div>
                     <div class="col s5">
-                        <h6>Ressentie</h6>
+                        <h6>Ressenti</h6>
                         <span>{{ (x.main.feels_like - 273.15) - (x.main.feels_like - 273.15) % 1}}°C</span>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                                     <h5>
                                         <i class="fas fa-tint"></i>
                                     </h5>
-                                    <div class="">
+                                    <div>
                                         <div>
                                             <span>{{x.main.humidity}}%</span>
                                         </div>
@@ -83,7 +83,7 @@
                                     </h5>
                                     <div>
                                         <div>
-                                            <span>{{x.wind.speed}}&nbsp;<span>m/s</span></span>
+                                            <span>{{x.wind.speed}}&nbsp;<span>m/s {{getCardinalDirection(x.wind.deg)}}</span></span>
                                         </div>
                                     </div>
                                 </div>

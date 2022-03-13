@@ -19,14 +19,17 @@ $(document).ready(function () {
 
 routeAppController.controller("ControllerMeteoVilles", function ($scope, $http) {
 
+    $scope.getCardinalDirection = function (angle) {
+        const directions = ['↑ N', '↗ NE', '→ E', '↘ SE', '↓ S', '↙ SW', '← W', '↖ NW'];
+        return directions[Math.round(angle / 45) % 8];
+    }
+
     $(document).ready(function () {
         $('.tooltipped').tooltip();
     });
     $(document).ready(function () {
         $('.sidenav').sidenav();
     });
-
-
 
 
     $scope.removeFavoris = function (id) {
@@ -110,6 +113,10 @@ routeAppController.controller("ControllerMeteoVilles", function ($scope, $http) 
 
 routeAppController.controller("ControllerPrevisions", function ($scope, $routeParams, $http) {
 
+    $scope.getCardinalDirection = function (angle) {
+        const directions = ['↑ N', '↗ NE', '→ E', '↘ SE', '↓ S', '↙ SW', '← W', '↖ NW'];
+        return directions[Math.round(angle / 45) % 8];
+    }
 
     if (localStorage.getItem('villesFavorites') != null && localStorage.getItem('villesFavorites') != undefined) {
         $scope.villesFavorites = JSON.parse(localStorage.getItem('villesFavorites'));
@@ -131,7 +138,7 @@ routeAppController.controller("ControllerPrevisions", function ($scope, $routePa
         $('.collapsible').collapsible();
     });
 
-    if (villes == undefined || villes.length == 0 || Object.keys(villes).length === 0 && villes.constructor === Object){
+    if (villes == undefined || villes.length == 0 || Object.keys(villes).length === 0 && villes.constructor === Object) {
         console.log("test");
         $scope.ville = JSON.parse(localStorage.getItem('villesFavorites'))[$routeParams.id];
     }
