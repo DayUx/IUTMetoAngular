@@ -13,7 +13,21 @@
             <span class="title col s10">{{x.date}}</span>
             <span class="col s2 m1">{{x.temp.max}}°C</span>
         </div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="collapsible-body">
+
+            <div class="row">
+
+                <div class="col s12 m6">
+                    <h1>{{x.temp.max}}°C <i class="fas fa-chevron-right"></i> {{x.temp.min}}°C</h1>
+                    <p>{{x.weather[0].description}}</p>
+                    <p>Humidité: {{x.humidity}}%</p>
+                    <p>Vent: {{x.wind_speed}} km/h</p>
+                    <p>Pression: {{x.pressure}} hPa</p>
+
+                </div>
+
+            </div>
+        </div>
     </li>
 </ul>
 

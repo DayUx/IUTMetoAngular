@@ -80,26 +80,18 @@ routeAppController.controller("ControllerMeteoVilles", function ($scope, $http) 
 
             let lat;
             let lon;
+            let ville;
             for (i = 0; i < $scope.meteovilles.length; i++) {
                 if ($scope.meteovilles[i].id == id) {
                     $scope.meteovilles[i].favoris = "fas fa-heart-broken";
-                    lat = $scope.meteovilles[i].coord.lat;
-                    lon = $scope.meteovilles[i].coord.lon;
+                    ville = $scope.meteovilles[i]
+
                 }
             }
 
-            villeFavorites[id] = {
-                ville: ville,
-                id: id,
-                coord: {
-                    lat: lat,
-                    lon: lon
-                }
-            };
+            villeFavorites[id] = ville;
             localStorage.setItem('villesFavorites', JSON.stringify(villeFavorites));
             $event.currentTarget.innerHTML = "<i class='fas fa-heart-broken'></i>";
-
-
         } else {
             villeFavorites[id] = undefined;
             localStorage.setItem('villesFavorites', JSON.stringify(villeFavorites));
@@ -131,18 +123,20 @@ routeAppController.controller("ControllerPrevisions", function ($scope, $routePa
             $scope.ville = villes[i];
         }
     }
-    $(document).ready(function () {
-        $('.tooltipped').tooltip();
-    });
+
     $(document).ready(function () {
         $('.sidenav').sidenav();
     });
+    $(document).ready(function () {
+        $('.collapsible').collapsible();
+    });
 
+    if (villes == undefined || villes.length == 0 || Object.keys(villes).length === 0 && villes.constructor === Object){
+        console.log("test");
+        $scope.ville = JSON.parse(localStorage.getItem('villesFavorites'))[$routeParams.id];
+    }
     console.log($scope.ville);
 
-    if (villes.length == 0) {
-        $scope.ville = JSON.parse(localStorage.getItem('villesFavorites'));
-    }
     $http({
         method: 'GET',
         url: "http://api.openweathermap.org/data/2.5/onecall?lat=" + $scope.ville.coord.lat + "&lon=" + $scope.ville.coord.lon + "&exclude=hourly,minutely&lang=fr&units=metric&appid=" + appid2
