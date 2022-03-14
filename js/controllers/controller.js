@@ -58,8 +58,8 @@ routeAppController.controller("ControllerMeteoVilles", function ($scope, $http) 
 
     //permet de reload les favoris
     $scope.reloadFavoris = function () {
-        if (localStorage.getItem('villesFavorites') != null && localStorage.getItem('villesFavorites') != undefined) {
-            $scope.villesFavorites = JSON.parse(localStorage.getItem('villesFavorites'));
+        if (localStorage.getItem('villesFavorites') != null && localStorage.getItem('villesFavorites') != undefined && localStorage.getItem('villesFavorites') != "") {
+            $scope.villesFavorites = JSON.parse(JSON.stringify(localStorage.getItem('villesFavorites')));
         }
     }
 
@@ -74,7 +74,7 @@ routeAppController.controller("ControllerMeteoVilles", function ($scope, $http) 
             //requete pour recuperer la liste des villes
         }).then(function successCallback(response) {
             var villeFavorites = localStorage.getItem('villesFavorites');//recupere les villes favorites
-            villeFavorites = JSON.parse(villeFavorites);//converti le string en json
+            villeFavorites = JSON.parse(JSON.stringify(villeFavorites));//converti le string en json
 
 
             for (i = 0; i < response.data.list.length; i++) {//parcours la liste des villes
@@ -96,7 +96,7 @@ routeAppController.controller("ControllerMeteoVilles", function ($scope, $http) 
     //ajoute une ville a la liste des favoris avec son id
     $scope.addFavorite = function (ville, id, $event) {
         var villeFavorites = localStorage.getItem('villesFavorites');
-        villeFavorites = JSON.parse(villeFavorites);
+        villeFavorites = JSON.parse(JSON.stringify(villeFavorites));
         if (villeFavorites[id] == null && villeFavorites[id] == undefined) {//si la ville n'est pas dans les favoris
 
 
@@ -137,7 +137,7 @@ routeAppController.controller("ControllerPrevisions", function ($scope, $routePa
 
 
     if (localStorage.getItem('villesFavorites') != null && localStorage.getItem('villesFavorites') != undefined) {
-        $scope.villesFavorites = JSON.parse(localStorage.getItem('villesFavorites'));//on recupere  la liste des villes favorites pour la rajouter dans le scope
+        $scope.villesFavorites = JSON.parse(JSON.stringify(localStorage.getItem('villesFavorites')));//on recupere  la liste des villes favorites pour la rajouter dans le scope
     }
 
     //les clefs api de openweathermap
@@ -160,7 +160,7 @@ routeAppController.controller("ControllerPrevisions", function ($scope, $routePa
     });
 
     if (villes == undefined || villes.length == 0 || Object.keys(villes).length === 0 && villes.constructor === Object) { //si la liste des villes est vide
-        $scope.ville = JSON.parse(localStorage.getItem('villesFavorites'))[$routeParams.id];//on recupere la ville a partir de l'id dans la liste des favoris
+        $scope.ville = JSON.parse(JSON.stringify(localStorage.getItem('villesFavorites')))[$routeParams.id];//on recupere la ville a partir de l'id dans la liste des favoris
     }
 
     //recupere les previsions meteo sur 7 jours
